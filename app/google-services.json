@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "57191830254",
+    "project_id": "parcheud",
+    "storage_bucket": "parcheud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57191830254:android:e0f18386c4f985574899ff",
+        "android_client_info": {
+          "package_name": "com.example.parche_ud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57191830254-l1c0hs80ck619ad2f0rbi22jc5pls58s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parche_ud",
+            "certificate_hash": "8d6fedc7837ba38ba80f29d31c179fd1a4b92e3d"
+          }
+        },
+        {
+          "client_id": "57191830254-duqpctitfg823bbs7ka7rovohrkgg1vu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPoys531_JqPJz_2nKIjaFDuFytdE0LsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57191830254-duqpctitfg823bbs7ka7rovohrkgg1vu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
