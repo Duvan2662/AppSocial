@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:background="@color/colorPrimario"
-        android:src="@drawable/amigoslogin"
+        android:src="@drawable/amigoslogin2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,14 +50,17 @@
                     android:id="@+id/numeroUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="numero"
-                    android:inputType="number"
+                    android:drawableLeft="@drawable/celularregistro"
                     android:drawablePadding="12dp"
-                    android:drawableLeft="@drawable/celular"/>
+                    android:hint="numero"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <TextView
+                android:background="@drawable/btn_bg"
                 android:id="@+id/enviarCodigo"
+                android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
                 android:text="Enviar Codigo"
@@ -103,11 +106,14 @@
                     android:inputType="number"
 
                     android:drawablePadding="12dp"
-                    android:drawableLeft="@drawable/candado"/>
+                    android:drawableLeft="@drawable/candado2"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <TextView
+                android:background="@drawable/btn_bg"
                 android:id="@+id/verificarCodigo"
+                android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
                 android:text="Verificar Codigo"
