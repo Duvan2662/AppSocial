@@ -15,14 +15,21 @@ class inicioActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio)
 
+        // método FirebaseAuth.getInstance().currentUser para obtener el usuario actualmente autenticado
+        // en Firebase Authentication y se asigna a la variable usuarios.
         val usuarios = FirebaseAuth.getInstance().currentUser
 
+        //Se verifica si la variable usuarios es nula o no. Si es nula, se inicia la actividad LoginActivity.
+        // De lo contrario, se inicia la actividad MainActivity.
         Handler(Looper.getMainLooper()).postDelayed({
             if(usuarios==null){
                 startActivity(Intent(this, LoginActivity::class.java ))
             }else{
                 startActivity(Intent(this, MainActivity::class.java ))
             }
+            finish()//se utiliza para finalizar la actividad actual y eliminarla
         },2000)
+
+
     }
 }

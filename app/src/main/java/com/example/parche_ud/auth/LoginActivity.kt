@@ -1,12 +1,117 @@
 package com.example.parche_ud.auth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.parche_ud.R
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.Toast
+import com.example.parche_ud.MainActivity
+import com.example.parche_ud.databinding.ActivityLoginBinding
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
+import java.util.concurrent.TimeUnit
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityLoginBinding
+
+    //Variable que me ayuda a autenticar el usuario
+    val auth = FirebaseAuth.getInstance()
+
+    private var verificarID : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+
+        //Me ayuda a enviar el codigo a la funcion que verifica el numero
+        binding.enviarCodigo.setOnClickListener{
+            if(binding.numeroUsuario.text!!.isEmpty()){
+                binding.numeroUsuario.error = "Por favor ingrese su número"//Mensaje de error
+            }else{
+                enviarCodigo(binding.numeroUsuario.text.toString())//envia el numero de telefono a la funcion
+            }
+        }
+
+        //Me ayuda a enviar el codigo a la funcion que verifica el codigo
+        binding.verificarCodigo.setOnClickListener{
+            if(binding.usuarioCodigo.text!!.isEmpty()){
+                binding.usuarioCodigo.error = "Por favor ingrese su codigo"//Mensaje de error
+            }else{
+                verificarCodigo(binding.usuarioCodigo.text.toString())//envia el codigo a la funcion
+            }
+
+        }
+    }
+
+    //esta función se utiliza para verificar el código de verificación proporcionado
+    // por el usuario y autenticarlo en la aplicación de Android utilizando Firebase Authentication.
+    private fun verificarCodigo(codigo: String) {
+//        binding.sendOtp.showLoadingButton()
+        val credential = PhoneAuthProvider.getCredential(verificarID!!, codigo)//Crea un objeto PhoneAuthCredential
+        signInWithPhoneAuthCredential(credential)
+    }
+
+    private fun enviarCodigo(numero: String) {
+
+//        binding.sendOtp.showLoadingButton() //metodo del boton de github
+
+        //Envía un código de verificación al teléfono del usuario
+        val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+            //Se llama cuando se completa la verificación automáticamente para autenticar
+            //al usuario con las credenciales de verificación de teléfono proporcionadas.
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+//                binding.sendOtp.showNormalButton()
+                signInWithPhoneAuthCredential(credential)
+            }
+
+            //Se llama cuando se produce un error durante el proceso de verificación.
+            override fun onVerificationFailed(e: FirebaseException) {
+
+            }
+
+            //Se llama cuando se ha enviado el código de verificación al número de teléfono
+            // del usuario
+            override fun onCodeSent(
+                verificarID: String,//es el ID de la verificación que se ha enviado al número de teléfono
+                token: PhoneAuthProvider.ForceResendingToken//que se utiliza para volver a enviar el código de verificación si el usuario no lo ha recibido
+            ) {
+                this@LoginActivity.verificarID = verificarID
+
+//                binding.sendOtp.showNormalButton()
+                binding.numeroLayout.visibility = GONE
+                binding.codigoLayout.visibility = VISIBLE
+            }
+        }
+
+        val options = PhoneAuthOptions.newBuilder(auth)
+            .setPhoneNumber("+57$numero")  //establece el número de teléfono que se va a verificar.
+            .setTimeout(60L, TimeUnit.SECONDS) //establece el tiempo límite en segundos para la verificación
+            .setActivity(this) //establece la actividad actual como la actividad a la que se le devolverá el resultado de la verificación.
+            .setCallbacks(callbacks) //e utilizará para recibir actualizaciones del estado de la verificación.
+            .build()
+        PhoneAuthProvider.verifyPhoneNumber(options)//e utiliza para iniciar la verificación del número de teléfono con las opciones configuradas anteriormente.
+    }
+
+
+    //Acceso del usuario
+    //iniciar sesión en Firebase usando las credenciales de autenticación de teléfono
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->//se verifica si la operación de inicio de sesión fue exitosa
+//                binding.sendOtp.showNormalButton()
+                if (task.isSuccessful) {
+                    startActivity(Intent(this,MainActivity::class.java))//Si es correcta la autenticacion entra al main activity
+                    finish()//se utiliza para finalizar la actividad actual y eliminarla
+                } else {
+                    Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()//Mensaje de error si no es correcta la autenticacion
+                }
+            }
     }
 }
