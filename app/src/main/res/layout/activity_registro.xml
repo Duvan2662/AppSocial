@@ -55,6 +55,7 @@
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imagenUsuario"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
@@ -105,11 +106,11 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/lugarUsuario"
+                        android:id="@+id/sedeUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="sede universidad"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:drawablePadding="12dp"
                         android:drawableLeft="@drawable/localizacionregistro"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -124,8 +125,8 @@
                     android:text="Acepta los terminos y condiciones al usar esta app" />
 
                 <TextView
-                    android:background="@drawable/btn_bg"
-                    android:id="@+id/enviarCodigo"
+                    android:background="@drawable/botonredondo"
+                    android:id="@+id/guardarInformacion"
                     android:gravity="center"
                     android:textColor="@color/white"
                     android:layout_width="match_parent"

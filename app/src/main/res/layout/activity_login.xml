@@ -57,7 +57,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/botonredondo"
                 android:id="@+id/enviarCodigo"
                 android:gravity="center"
                 android:textColor="@color/white"
@@ -110,7 +110,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:background="@drawable/btn_bg"
+                android:background="@drawable/botonredondo"
                 android:id="@+id/verificarCodigo"
                 android:gravity="center"
                 android:textColor="@color/white"
