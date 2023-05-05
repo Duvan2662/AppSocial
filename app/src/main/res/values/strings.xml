@@ -5,5 +5,9 @@
     <string name="amigos">Amigos</string>
     <string name="mensajes">Mensajes</string>
     <string name="perfil">Perfil</string>
+    <string name="abrir">Abrir</string>
+    <string name="cerrar">Cerrar</string>
+
+
 
 </resources>

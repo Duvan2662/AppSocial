@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/universidad"
+        android:title="Universidad"
+        android:icon="@drawable/logodistrital"/>
+
+    <item android:id="@+id/compartir"
+        android:title="Compartir"
+        android:icon="@drawable/compartir"/>
+
+    <item android:id="@+id/terminosCondiciones"
+        android:title="Terminos y Condiciones"
+        android:icon="@drawable/terminos"/>
+
+    <item android:id="@+id/facultad"
+        android:title="Facultad"
+        android:icon="@drawable/facultad"/>
+
+    <item android:id="@+id/desarrollador"
+        android:title="Desarrollador"
+        android:icon="@drawable/desarrollador"/>
+</menu>
