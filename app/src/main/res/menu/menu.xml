@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@id/amigosFragment"
+        android:title="@string/amigos"
+        android:icon="@drawable/usuarios"/>
+
+    <item android:id="@id/mensajesFragment"
+        android:title="@string/mensajes"
+        android:icon="@drawable/mensaje"/>
+
+    <item android:id="@id/perfilFragment"
+        android:title="@string/perfil"
+        android:icon="@drawable/perfil"/>
+
+</menu>

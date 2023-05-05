@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nevegacion"
+    app:startDestination="@id/amigosFragment">
+
+    <fragment
+        android:id="@+id/amigosFragment"
+        android:name="com.example.parche_ud.utilidades.AmigosFragment"
+        android:label="fragment_amigos"
+        tools:layout="@layout/fragment_amigos" />
+    <fragment
+        android:id="@+id/mensajesFragment"
+        android:name="com.example.parche_ud.utilidades.MensajesFragment"
+        android:label="fragment_mensajes"
+        tools:layout="@layout/fragment_mensajes" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.parche_ud.utilidades.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>

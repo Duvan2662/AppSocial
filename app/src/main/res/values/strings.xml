@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Parche-Ud</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="amigos">Amigos</string>
+    <string name="mensajes">Mensajes</string>
+    <string name="perfil">Perfil</string>
+
 </resources>
