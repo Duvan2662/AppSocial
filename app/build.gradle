@@ -61,4 +61,7 @@ dependencies {
 
     //implementation 'com.github.yatindeokar:MyLoadingButton:v1.0.1'//boton de carga login
 
+    //biblioteca de Android que proporciona una vista de pila de cartas similar a la que se usa en Tinder.
+    implementation 'com.github.yuyakaido:CardStackView:v2.3.4'
+
 }
