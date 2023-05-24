@@ -9,10 +9,8 @@
     <com.yuyakaido.android.cardstackview.CardStackView
         android:id="@+id/cartavistas"
         android:layout_width="match_parent"
+        tools:listitem="@layout/usuarios_layout"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         />
-
-
-
 </RelativeLayout>
