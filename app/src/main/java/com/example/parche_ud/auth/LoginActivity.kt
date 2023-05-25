@@ -1,5 +1,4 @@
 package com.example.parche_ud.auth
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -140,7 +139,7 @@ class LoginActivity : AppCompatActivity() {
     //Me ayuda a ver si es correcta la autenticacion
     private fun verificarUsuarioExiste(numero: String) {
 
-        FirebaseDatabase.getInstance().getReference("Usuarios").child(numero)//Revisa en la tabla usuarios si existe el numero que el usuario ingreso
+        FirebaseDatabase.getInstance().getReference("usuarios").child("+57"+numero)//Revisa en la tabla usuarios si existe el numero que el usuario ingreso
             .addValueEventListener(object : ValueEventListener{
 
                 //Error en la base d datos

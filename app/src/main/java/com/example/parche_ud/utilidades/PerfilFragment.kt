@@ -1,60 +1,67 @@
 package com.example.parche_ud.utilidades
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import com.example.parche_ud.R
+import com.example.parche_ud.activity.EditarPerfilActivity
+import com.example.parche_ud.auth.LoginActivity
+import com.example.parche_ud.databinding.FragmentPerfilBinding
+import com.example.parche_ud.model.usuariosModelo
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PerfilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class PerfilFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class  PerfilFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentPerfilBinding
+    private  lateinit var dialogo : AlertDialog
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+    ): View {
+
+
+
+        //Dialogo de carga
+        binding = FragmentPerfilBinding.inflate(layoutInflater)
+        dialogo = AlertDialog.Builder(requireContext()).setView(R.layout.cargar_layout).setCancelable(false).create()
+        dialogo.show()
+
+        //Se traen los datos del usuario para colocarlos en el fragmentPerfil
+        FirebaseDatabase.getInstance().getReference("usuarios").child(FirebaseAuth.getInstance().currentUser!!.phoneNumber!!).get().addOnSuccessListener {
+            //Si el usuario existe coloca llena los campos del perfil
+            if(it.exists()){
+                val datos = it.getValue(usuariosModelo::class.java)
+                binding.nombre.setText( datos!!.nombre.toString())
+                binding.correo.setText( datos.correo.toString())
+                binding.facultad.setText( datos.sede.toString())
+                binding.telefono.setText( datos.numero.toString())
+
+                val img = datos.imagen
+                Glide.with(requireContext()).load(img).placeholder(R.drawable.perfil).into(binding.imagenUsuario)
+                dialogo.dismiss()
+            }
+        }
+
+        //Boton de cerrar sesion
+        binding.salir.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            requireActivity().finish()
+        }
+        //Boton de editar perfil
+        binding.editarPerfil.setOnClickListener{
+            startActivity(Intent(requireContext(), EditarPerfilActivity::class.java))
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PerfilFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PerfilFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+
 }

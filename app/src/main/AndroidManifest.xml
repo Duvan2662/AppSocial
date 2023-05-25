@@ -12,8 +12,11 @@
         android:theme="@style/Theme.ParcheUd"
         tools:targetApi="31">
         <activity
+            android:name=".activity.EditarPerfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.inicioActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

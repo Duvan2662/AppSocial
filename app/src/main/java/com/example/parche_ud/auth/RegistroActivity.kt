@@ -92,12 +92,13 @@ class RegistroActivity : AppCompatActivity() {
             imagen = imagenUrl.toString(),
             correo = binding.correoUsuario.text.toString(),
             sede = binding.sedeUsuario.text.toString(),
+            numero = FirebaseAuth.getInstance().currentUser!!.phoneNumber!!
         )
         //Se guarda esta informacion en la tabla usuarios,
         //Cada usuario esta identificado con su numero de telefono
         FirebaseDatabase.getInstance().getReference("usuarios").child(FirebaseAuth.getInstance().currentUser!!.phoneNumber!!).setValue(usuario).addOnCompleteListener{
             informando2()
-            //Si todo sale correcto inicia la actividad main activity que es donde va estar los demas usuarios
+            //Si  sale correcto inicia la actividad main activity que es donde va estar los demas usuarios
             if(it.isSuccessful){
                 startActivity(Intent(this,MainActivity::class.java))
                 Toast.makeText(this, "Usuario Registrado con exito", Toast.LENGTH_SHORT).show()
