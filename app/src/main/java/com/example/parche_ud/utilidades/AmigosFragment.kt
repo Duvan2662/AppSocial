@@ -24,7 +24,7 @@ class AmigosFragment : Fragment() {
 
     private lateinit var binding : FragmentAmigosBinding
     private lateinit var pendiente : CardStackLayoutManager
-    private lateinit var lista:ArrayList<usuariosModelo>//Donde se van a guardar todos los usuarios de firebase
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +39,9 @@ class AmigosFragment : Fragment() {
 
     //Obtiene los datos de firebase y los pone en una lista para mostrarlos en el
     // reciclerView del adapatdor donde se van a mostar  los datos de los usuarios (Imagen, correo, nombre)
+    companion object {
+        var lista:ArrayList<usuariosModelo>? = null//Donde se van a guardar todos los usuarios de firebase
+    }
     private fun obtenerDatos() {
         FirebaseDatabase.getInstance().getReference("usuarios").addValueEventListener(object :
             ValueEventListener{
@@ -48,13 +51,13 @@ class AmigosFragment : Fragment() {
                      lista = arrayListOf<usuariosModelo>()
                     for(datos in snapshot.children){
                         val modelo = datos.getValue(usuariosModelo::class.java)
-                        lista.add(modelo!!)
+                        lista!!.add(modelo!!)
                     }
-                    lista.shuffle()//Mezcla aleatoriamente los usuarios
+                    lista!!.shuffle()//Mezcla aleatoriamente los usuarios
                     iniciar()
                     binding.cartavistas.layoutManager = pendiente
                     binding.cartavistas.itemAnimator = DefaultItemAnimator()//gestionar las animaciones
-                    binding.cartavistas.adapter = AmistadAdaptador(requireContext(),lista)
+                    binding.cartavistas.adapter = AmistadAdaptador(requireContext(),lista!!)
                 }else{
                     Toast.makeText(requireContext(), "Hubo un error", Toast.LENGTH_SHORT).show()
                 }
@@ -75,7 +78,7 @@ class AmigosFragment : Fragment() {
             //Se invoca cuando se realiza un deslizamiento completo de una tarjeta en una dirección específica
             override fun onCardSwiped(direction: Direction?) {
                 //verifica si la tarjeta superior en la pila es la última y muestra un mensaje de "última carta
-                if(pendiente.topPosition == lista.size){
+                if(pendiente.topPosition == lista!!.size){
                     Toast.makeText(requireContext(), "Esta es la ultima carta", Toast.LENGTH_SHORT).show()
                 }
             }
