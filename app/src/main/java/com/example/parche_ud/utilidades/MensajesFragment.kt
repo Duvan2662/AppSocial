@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.parche_ud.R
 import com.example.parche_ud.adapter.MensajeUsuarioAdaptador
 import com.example.parche_ud.databinding.FragmentMensajesBinding
 import com.example.parche_ud.utilidades.AmigosFragment.Companion.lista
