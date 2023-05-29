@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.parche_ud.adapter.AmistadAdaptador
 import com.example.parche_ud.databinding.FragmentAmigosBinding
 import com.example.parche_ud.model.usuariosModelo
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -48,10 +49,13 @@ class AmigosFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.d("shub","onDataChange: ${snapshot.toString()}")
                 if(snapshot.exists()){
-                     lista = arrayListOf<usuariosModelo>()
+                     lista = arrayListOf()
                     for(datos in snapshot.children){
                         val modelo = datos.getValue(usuariosModelo::class.java)
-                        lista!!.add(modelo!!)
+                        if(modelo!!.numero !=FirebaseAuth.getInstance().currentUser!!.phoneNumber){
+                            lista!!.add(modelo)
+                        }
+
                     }
                     lista!!.shuffle()//Mezcla aleatoriamente los usuarios
                     iniciar()

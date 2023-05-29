@@ -1,10 +1,12 @@
 package com.example.parche_ud.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.parche_ud.activity.MessageActivity
 import com.example.parche_ud.databinding.UsuariosLayoutBinding
 import com.example.parche_ud.model.usuariosModelo
 
@@ -26,5 +28,11 @@ class AmistadAdaptador(val context : Context, val lista: ArrayList<usuariosModel
         holder.binding.textView4.text = lista[position].correo //Correo del usuario en la carta
 
         Glide.with(context).load(lista[position].imagen).into(holder.binding.usuarioImagen)//Imagen del usuario en la carta
+
+        holder.binding.chat.setOnClickListener {
+            val inte = Intent(context, MessageActivity::class.java)
+            inte.putExtra("userId",lista[position].numero)
+            context.startActivity(inte)
+        }
     }
 }
