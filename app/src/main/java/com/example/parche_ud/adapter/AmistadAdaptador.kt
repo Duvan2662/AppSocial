@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.parche_ud.activity.MessageActivity
+import com.example.parche_ud.activity.MensajeActivity
 import com.example.parche_ud.databinding.UsuariosLayoutBinding
 import com.example.parche_ud.model.usuariosModelo
 
@@ -29,8 +29,10 @@ class AmistadAdaptador(val context : Context, val lista: ArrayList<usuariosModel
 
         Glide.with(context).load(lista[position].imagen).into(holder.binding.usuarioImagen)//Imagen del usuario en la carta
 
+
+        //Cuando el usuario le da en la imagen del chat
         holder.binding.chat.setOnClickListener {
-            val inte = Intent(context, MessageActivity::class.java)
+            val inte = Intent(context, MensajeActivity::class.java)
             inte.putExtra("userId",lista[position].numero)
             context.startActivity(inte)
         }

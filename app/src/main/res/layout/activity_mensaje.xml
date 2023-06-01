@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MessageActivity">
+    tools:context=".activity.MensajeActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerView2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/yourMessage"
+            android:id="@+id/suMensaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mensaje" />
@@ -41,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/layout_receiver_message"
+        tools:listitem="@layout/layout_recibir_mensaje"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

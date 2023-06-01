@@ -1,6 +1,6 @@
 package com.example.parche_ud.model
 
-
+//Modelo de usuarios
 //Clase para los usuarios
 data class usuariosModelo(
     val numero : String? = "",

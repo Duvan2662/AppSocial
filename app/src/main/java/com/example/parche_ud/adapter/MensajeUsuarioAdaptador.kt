@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.parche_ud.activity.MessageActivity
+import com.example.parche_ud.activity.MensajeActivity
 import com.example.parche_ud.databinding.ContenedorUsuarioMensajeLayoutBinding
 import com.example.parche_ud.model.usuariosModelo
 import com.google.firebase.database.DataSnapshot
@@ -23,10 +23,12 @@ class MensajeUsuarioAdaptador(val context: Context, val lista:ArrayList<String>,
         return MensajeUsuarioViewHolder(ContenedorUsuarioMensajeLayoutBinding.inflate(LayoutInflater.from(context), parent,false))
     }
 
+    //Lista de usuarios con loq ue habla cada usuario cantidad
     override fun getItemCount(): Int {
         return lista.size
     }
 
+    //Muestra los usuarios con los que habla el usuario
     override fun onBindViewHolder(holder: MensajeUsuarioViewHolder, position: Int) {
 
         FirebaseDatabase.getInstance().getReference("usuarios")
@@ -36,8 +38,8 @@ class MensajeUsuarioAdaptador(val context: Context, val lista:ArrayList<String>,
 
                         if(snapshot.exists()){
                             val data = snapshot.getValue(usuariosModelo::class.java)
-                            Glide.with(context).load(data!!.imagen).into(holder.binding.imagenUsuario)
-                            holder.binding.nombreUsuario.text = data.nombre
+                            Glide.with(context).load(data!!.imagen).into(holder.binding.imagenUsuario)//Trae la imagen
+                            holder.binding.nombreUsuario.text = data.nombre//Y el nombre
                         }
 
                     }
@@ -48,8 +50,8 @@ class MensajeUsuarioAdaptador(val context: Context, val lista:ArrayList<String>,
 
                 })
 
-        holder.itemView.setOnClickListener {
-            val inte = Intent(context,MessageActivity::class.java)
+        holder.itemView.setOnClickListener {//Cuando se le da click se muestra el chat de cada usuario al que se le dio click
+            val inte = Intent(context,MensajeActivity::class.java)
             inte.putExtra("chat_id",chatKey[position])
             inte.putExtra("userId",lista[position])
             context.startActivity(inte)
