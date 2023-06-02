@@ -152,7 +152,7 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
-                        dialogo.dismiss()
+                        //dialogo.dismiss()
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))//Si existe en la base de datos ingresa a la aplicacion
                         finish()
                     }
