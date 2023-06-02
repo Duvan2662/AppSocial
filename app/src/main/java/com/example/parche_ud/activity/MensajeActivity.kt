@@ -3,6 +3,7 @@ package com.example.parche_ud.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.parche_ud.R
 import com.example.parche_ud.adapter.MensajeAdaptador
 import com.example.parche_ud.databinding.ActivityMensajeBinding
 
@@ -32,7 +33,8 @@ class MensajeActivity : AppCompatActivity() {
 
         binding.imageView4.setOnClickListener {
             if(binding.suMensaje.text!!.isEmpty()){
-                Toast.makeText(this, "Por favor Ingrese un mensaje", Toast.LENGTH_SHORT).show()
+                val mensaje = getString(R.string.mensaje1)
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
             }else{
                 almacenarDatos(binding.suMensaje.text.toString())
             }
@@ -118,7 +120,8 @@ class MensajeActivity : AppCompatActivity() {
         reference.child(reference.push().key!!).setValue(map).addOnCompleteListener {
             if(it.isSuccessful){
                 binding.suMensaje.text = null
-                Toast.makeText(this, "Mensaje enviado", Toast.LENGTH_SHORT).show()
+                val mensaje = getString(R.string.mensaje2)
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "Algo salio mal ñero", Toast.LENGTH_SHORT).show()
             }

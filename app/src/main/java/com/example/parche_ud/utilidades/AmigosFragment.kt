@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.example.parche_ud.R
 import com.example.parche_ud.adapter.AmistadAdaptador
 import com.example.parche_ud.databinding.FragmentAmigosBinding
 import com.example.parche_ud.model.usuariosModelo
@@ -83,7 +84,8 @@ class AmigosFragment : Fragment() {
             override fun onCardSwiped(direction: Direction?) {
                 //verifica si la tarjeta superior en la pila es la última y muestra un mensaje de "última carta
                 if(pendiente.topPosition == lista!!.size){
-                    Toast.makeText(requireContext(), "Esta es la ultima carta", Toast.LENGTH_SHORT).show()
+                    val mensaje = getString(R.string.mensaje8)
+                    Toast.makeText(requireContext(), mensaje, Toast.LENGTH_SHORT).show()
                 }
             }
 

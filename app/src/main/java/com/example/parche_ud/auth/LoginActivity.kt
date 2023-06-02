@@ -43,7 +43,8 @@ class LoginActivity : AppCompatActivity() {
         //Me ayuda a enviar el codigo a la funcion que verifica el numero
         binding.enviarCodigo.setOnClickListener{
             if(binding.numeroUsuario.text!!.isEmpty()){
-                binding.numeroUsuario.error = "Por favor ingrese su número"//Mensaje de error
+                val mensaje = getString(R.string.mensaje3)
+                binding.numeroUsuario.error = mensaje//Mensaje de error
             }else{
                 enviarCodigo(binding.numeroUsuario.text.toString())//envia el numero de telefono a la funcion
             }
@@ -52,7 +53,8 @@ class LoginActivity : AppCompatActivity() {
         //Me ayuda a enviar el codigo a la funcion que verifica el codigo
         binding.verificarCodigo.setOnClickListener{
             if(binding.usuarioCodigo.text!!.isEmpty()){
-                binding.usuarioCodigo.error = "Por favor ingrese su codigo"//Mensaje de error
+                val mensaje = getString(R.string.mensaje4)
+                binding.usuarioCodigo.error = mensaje//Mensaje de error
             }else{
                 verificarCodigo(binding.usuarioCodigo.text.toString())//envia el codigo a la funcion
             }

@@ -33,8 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/nombre"
-            android:hint="Nombre"
-            android:text="Airoman"
+            android:hint="@string/Nombre"
+            android:text="@string/pruebanombre"
             android:clickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -49,8 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/facultad"
-            android:hint="Facultad"
-            android:text="Tecnologica"
+            android:hint="@string/Sede"
+            android:text="@string/pruebafacultad"
             android:clickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -65,8 +65,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/correo"
-            android:hint="Correo"
-            android:text="ddrianos@correo.udistrital.edu.co"
+            android:hint="@string/Correo"
+            android:text="@string/pruebacorreo"
             android:clickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -81,8 +81,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/telefono"
-            android:hint="Telefono"
-            android:text="3195978778"
+            android:hint="@string/numero"
+            android:text="@string/pruebanumero"
             android:clickable="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
@@ -99,14 +99,14 @@
             android:layout_marginEnd="8dp"
             android:textAllCaps="false"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:text="Editar Perfil"/>
+            android:text="@string/editarperfil"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/salir"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:text="Cerrar Sesion"/>
+            android:text="@string/cerrarSesion"/>
     </LinearLayout>
 
 

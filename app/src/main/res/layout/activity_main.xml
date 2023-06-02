@@ -30,6 +30,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorPrimario"
+            app:itemIconTint="@color/colorTerciario"
+            app:itemTextColor="@color/colorTerciario"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/menu" />
 

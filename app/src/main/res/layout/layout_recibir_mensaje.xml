@@ -27,7 +27,7 @@
             android:id="@+id/mensaje"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Mensaje de prueba gonorrea"
+            android:text="@string/pruebamensaje"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"

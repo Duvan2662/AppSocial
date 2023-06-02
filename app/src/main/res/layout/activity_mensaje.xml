@@ -22,7 +22,7 @@
             android:id="@+id/suMensaje"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mensaje" />
+            android:hint="@string/Mensaje" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView

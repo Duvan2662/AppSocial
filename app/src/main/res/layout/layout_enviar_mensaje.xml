@@ -28,7 +28,7 @@
             android:textSize="14sp"
             android:layout_marginStart="8dp"
             android:textColor="@color/black"
-            android:text="vamos a calmarnos por que nos estomos jodiendo"/>
+            android:text="@string/pruebamensaje"/>
 
 
 

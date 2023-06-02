@@ -24,7 +24,7 @@
                 android:layout_gravity="center_horizontal"
                 style="bold"
                 android:textSize="24sp"
-                android:text="Parche UD"/>
+                android:text="@string/AmigosUD"/>
             <TextView
                 android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 style="bold"
                 android:textSize="16sp"
-                android:text="Ingresa tus datos"/>
+                android:text="@string/IngresaDatos"/>
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"
-                    android:text="Subir foto de perfil" />
+                    android:text="@string/SubirFoto" />
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -79,7 +79,7 @@
                         android:id="@+id/nombreUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nombre"
+                        android:hint="@string/Nombre"
                         android:inputType="text"
                         android:drawablePadding="12dp"
                         android:drawableLeft="@drawable/nombreregistro"/>
@@ -94,7 +94,7 @@
                         android:id="@+id/correoUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Correo universitario"
+                        android:hint="@string/Correo"
                         android:inputType="textEmailAddress"
                         android:drawablePadding="12dp"
                         android:drawableLeft="@drawable/outlookregistro"/>
@@ -109,7 +109,7 @@
                         android:id="@+id/sedeUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="sede universidad"
+                        android:hint="@string/Sede"
                         android:inputType="text"
                         android:drawablePadding="12dp"
                         android:drawableLeft="@drawable/localizacionregistro"/>
@@ -122,7 +122,7 @@
                     android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"
                     android:textSize="10sp"
-                    android:text="Acepta los terminos y condiciones al usar esta app" />
+                    android:text="@string/Terminos" />
 
                 <TextView
                     android:background="@drawable/botonredondo"
@@ -131,7 +131,7 @@
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_marginTop="16dp"
-                    android:text="Continuar"
+                    android:text="@string/Continuar"
                     android:layout_height="40dp"
                     />
             </LinearLayout>

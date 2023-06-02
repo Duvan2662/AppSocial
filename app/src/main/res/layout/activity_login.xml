@@ -38,7 +38,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Introduce tu numero celular" />
+                android:text="@string/IntroduceNum"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/celularregistro"
                     android:drawablePadding="12dp"
-                    android:hint="numero"
+                    android:hint="@string/numero"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +63,7 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
-                android:text="Enviar Codigo"
+                android:text="@string/EnviarCodigo"
                 android:layout_height="40dp"
                 />
         </LinearLayout>
@@ -90,7 +90,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Introduce tu codigo" />
+                android:text="@string/IntroducirCodigo"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -102,7 +102,7 @@
                     android:id="@+id/usuarioCodigo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Codigo"
+                    android:hint="@string/Codigo"
                     android:inputType="number"
 
                     android:drawablePadding="12dp"
@@ -116,7 +116,7 @@
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
-                android:text="Verificar Codigo"
+                android:text="@string/VerificarCodigo"
                 android:layout_height="40dp"
                 />
         </LinearLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.parche_ud.MainActivity
+import com.example.parche_ud.R
 import com.example.parche_ud.databinding.ActivityRegistroBinding
 import com.example.parche_ud.model.usuariosModelo
 import com.example.parche_ud.utils.Configuracion
@@ -50,9 +51,11 @@ class RegistroActivity : AppCompatActivity() {
     private fun validarInformacion() {
         //valida los campos de texto
         if(binding.nombreUsuario.text.toString().isEmpty()|| binding.correoUsuario.toString().isEmpty() || binding.sedeUsuario.toString().isEmpty() || imagenUrl==null){
-            Toast.makeText(this,"Por favor llene todos los campos",Toast.LENGTH_SHORT).show()
+            val mensaje1 = getString(R.string.mensaje5)
+            Toast.makeText(this,mensaje1,Toast.LENGTH_SHORT).show()
         }else if(!binding.terminosCondiciones.isChecked){//valida los terminos y condiciones
-            Toast.makeText(this,"Por favor Acepte los terminos y las condiciones de la app",Toast.LENGTH_SHORT).show()
+            val mensaje2 = getString(R.string.mensaje6)
+            Toast.makeText(this,mensaje2,Toast.LENGTH_SHORT).show()
         }else{
 
             subirImagen()
@@ -101,7 +104,8 @@ class RegistroActivity : AppCompatActivity() {
             //Si  sale correcto inicia la actividad main activity que es donde va estar los demas usuarios
             if(it.isSuccessful){
                 startActivity(Intent(this,MainActivity::class.java))
-                Toast.makeText(this, "Usuario Registrado con exito", Toast.LENGTH_SHORT).show()
+                val mensaje = getString(R.string.mensaje7)
+                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, it.exception!!.message, Toast.LENGTH_SHORT).show()
 

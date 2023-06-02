@@ -1,5 +1,7 @@
 package com.example.parche_ud
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -25,13 +27,13 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
 
         //accesibilidad para abrir y cerrar el menú de navegación.
-        actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.principal,R.string.abrir,R.string.cerrar)
+        actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.principal,R.string.Abrir,R.string.Cerrar)
         //escuchará y responderá a eventos en el menú de navegación.
         binding.principal.addDrawerListener(actionBarDrawerToggle!!)
         //animación de transición de la hamburguesa del menú a una flecha de retroceso
         actionBarDrawerToggle!!.syncState()
         //permite que el usuario pueda volver atrás en la navegación de la aplicación.
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)   ->aL LORO SE PUEDE ACTIVAR
         //escuche los eventos de selección de elementos del menú y realice las acciones
         binding.vistaNavegacion.setNavigationItemSelectedListener(this)
 
@@ -46,20 +48,29 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.universidad ->{
-                Toast.makeText(this, "Universidad", Toast.LENGTH_SHORT).show()
+                val url = "https://www.udistrital.edu.co/inicio"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
             }
             R.id.compartir ->{
                 Toast.makeText(this, "Compartir", Toast.LENGTH_SHORT).show()
             }
             R.id.terminosCondiciones ->{
-                Toast.makeText(this, "Terminos y Condiciones", Toast.LENGTH_SHORT).show()
+                val url = "https://docs.google.com/document/d/10iYwf4mhZshGV2M0CwTgQTX3JtjggH4aFbz2Boq6wlI/edit?usp=sharing"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
             }
             R.id.facultad ->{
-                Toast.makeText(this, "Facultad", Toast.LENGTH_SHORT).show()
+                val url = "http://tecsistematizaciondatos.udistrital.edu.co:8080/"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
             }
             R.id.desarrollador ->{
-                Toast.makeText(this, "Desarrollador", Toast.LENGTH_SHORT).show()
+                val url = "https://github.com/Duvan2662"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
             }
+
         }
         return true//Devuelve true para saber que funciono
     }

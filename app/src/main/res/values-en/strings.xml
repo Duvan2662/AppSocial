@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Activity Login
+    <string name="IntroduceNum">Enter your mobile number</string>
+    <string name="numero">Number</string>
+    <string name="EnviarCodigo">Send code</string>
+    <string name="IntroducirCodigo">Enter your code</string>
+    <string name="Codigo">Code</string>
+    <string name="VerificarCodigo">Verify Code</string>
+
+    //Activity Mensaje
+    <string name="Mensaje">Message</string>
+
+    //Activity Registro
+    <string name="AmigosUD">Friends UD</string>
+    <string name="IngresaDatos">Enter your data</string>
+    <string name="SubirFoto">Upload profile photo</string>
+    <string name="Nombre">Name</string>
+    <string name="Correo">University mail</string>
+    <string name="Sede">University headquarters</string>
+    <string name="Terminos">Accept the terms and conditions when using this app</string>
+    <string name="Continuar">Continue</string>
+
+    //Cargar Layout
+    <string name="Cargar">Loading......</string>
+
+    //Contenedor usuario mensaje
+    <string name="pruebanombre">IRON MAN</string>
+
+    //Fragment Perfil
+    <string name="pruebafacultad">Technological</string>
+    <string name="pruebacorreo">ddrianos@correo.udistrital.edu.co</string>
+    <string name="pruebanumero">3195978778</string>
+    <string name="editarperfil">Edit profile</string>
+    <string name="cerrarSesion">Sign off</string>
+
+
+    //layout enviar mensaje
+
+    <string name="pruebamensaje">Lets calm down because we are screwing ourselves</string>
+
+    //Menu
+    <string name="Amigos">Friends</string>
+    <string name="Mensajes">Messages</string>
+    <string name="Perfil">Profile</string>
+
+
+    //navegacion_Informacion
+    <string name="Universidad">University</string>
+    <string name="Compartir">Share</string>
+    <string name="Condiciones">Terms and Conditions</string>
+    <string name="Facultad">Faculty</string>
+    <string name="Desarrollador">Developer</string>
+
+
+
+    //MensajeToast Mensaje Activity
+
+    <string name="mensaje1">Please enter a message</string>
+    <string name="mensaje2">Message sent</string>
+
+
+    //Mensaje LoginActivity
+    <string name="mensaje3">Please enter your number</string>
+    <string name="mensaje4">Please enter your code</string>
+
+    //Mensaje RegistroActivity
+    <string name="mensaje5">Please fill all fields</string>
+    <string name="mensaje6">Please accept the terms and conditions of the app</string>
+    <string name="mensaje7">Registered user successfully</string>
+
+    //Mensaje Amigos fragment
+    <string name="mensaje8">This is the last letter</string>
+
+
+
+</resources>
