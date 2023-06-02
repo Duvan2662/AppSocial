@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Friends-Ud</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Abrir">Open</string>
+    <string name="Cerrar">Close</string>
+
+
+
     //Activity Login
     <string name="IntroduceNum">Enter your mobile number</string>
     <string name="numero">Number</string>
